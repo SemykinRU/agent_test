@@ -18,6 +18,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:4.1.2'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
