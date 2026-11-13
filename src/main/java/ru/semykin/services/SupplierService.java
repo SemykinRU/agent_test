@@ -1,14 +1,15 @@
 package ru.semykin.services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.semykin.clients.HttpSupplierClient;
+import ru.semykin.dto.Response;
 import ru.semykin.exception.ExceptionMessage;
 import ru.semykin.exception.SupplierException;
-import ru.semykin.models.Supplier;
-import tools.jackson.databind.ObjectMapper;
+import ru.semykin.dto.Supplier;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -24,7 +25,6 @@ public class SupplierService {
     private final ObjectMapper objectMapper;
 
     private static final String JSON_FORMAT =  "application/json";
-
 
     private static final ConcurrentHashMap<Long, Supplier> SUPPLIERS = new ConcurrentHashMap<>();
 
@@ -69,7 +69,7 @@ public class SupplierService {
         updateSupplierList(suppliersFromFile);
     }
 
-    public String checkSupplier(final Long id, final Long phone) {
+    public Response checkSupplier(final Long id, final Long phone) {
         if (id == null) {
             log.error(ExceptionMessage.SUPPLIER_ID_IS_NULL);
             throw new SupplierException(ExceptionMessage.SUPPLIER_ID_IS_NULL);

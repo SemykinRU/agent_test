@@ -1,2 +1,6 @@
 server:
   port: 8090
+
+jwt:
+  secret: '0ebdb51c-ae02-49d1-ae54-8973aaa5a952'
+  expired_time_hours: 24

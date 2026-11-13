@@ -6,11 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.semykin.dto.Response;
-import ru.semykin.models.Supplier;
+import ru.semykin.dto.Supplier;
 import ru.semykin.services.SupplierService;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -41,8 +40,8 @@ public class SupplierController {
     @GetMapping("/suppliers")
     public ResponseEntity<Response> checkSuppliers(@RequestParam final Long id, @RequestParam final Long phone) {
         try {
-            final String result = supplierService.checkSupplier(id, phone);
-            return ResponseEntity.ok(new Response(HttpStatus.OK.value(), result));
+            final Response response = supplierService.checkSupplier(id, phone);
+            return ResponseEntity.ok(response);
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(new Response(HttpStatus.BAD_REQUEST.value(), ex.getMessage()));
         }
