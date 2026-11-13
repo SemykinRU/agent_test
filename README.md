@@ -5,6 +5,10 @@
 2. Выполни POST-запрос на http://localhost:8090/api/auth/login с телом {"username": "user", "password": "password"}.
 3. Получи JWT-токен в ответе.
 4. Выполни запрос к любому защищенному эндпоинту с заголовком Authorization: Bearer <ваш_токен>
+http://localhost:8090/update POST-запрос, в теле принимает список поставщиков [{"id": 1, "baseUrl": "http://test.ru", "apiKey": "sdjahfgjedfnkjo"}, {"id": 1, "baseUrl": "http://test.ru", "apiKey": "sdjahfgjedfnkjo"}]
+http://localhost:8090/upload POST-запрос для загрузке файла, файл указывать в параметрах как file <img width="971" height="63" alt="image" src="https://github.com/user-attachments/assets/ae17e683-6f23-41fe-a6d5-42ac1acff225" />
+http://localhost:8090/suppliers?id={id}&phone={phone} GET-запрос из ТЗ "По идентификатору поставщика и номеру телефона сервис узнаёт, доступен ли номер телефона"
+
 
 
 Постановка:
